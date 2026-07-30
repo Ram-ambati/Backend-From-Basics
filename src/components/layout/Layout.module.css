@@ -1,0 +1,54 @@
+/* ===== Three-Column Layout ===== */
+
+.layout {
+  display: flex;
+  min-height: 100vh;
+  padding-top: var(--topbar-height);
+}
+
+.main-content {
+  flex: 1;
+  min-width: 0;
+  margin-left: var(--sidebar-left-width);
+  margin-right: var(--sidebar-right-width);
+}
+
+.content-wrapper {
+  max-width: var(--content-max-width);
+  margin: 0 auto;
+  padding: var(--space-8) var(--page-padding-desktop);
+}
+
+/* --- Responsive --- */
+@media (max-width: 1279px) {
+  .main-content {
+    margin-right: 0;
+  }
+
+  .content-wrapper {
+    padding: var(--space-7) var(--page-padding-tablet);
+  }
+}
+
+@media (max-width: 767px) {
+  .main-content {
+    margin-left: 0;
+  }
+
+  .content-wrapper {
+    padding: var(--space-6) var(--page-padding-mobile);
+  }
+}
+
+/* --- Backdrop for mobile sidebar --- */
+.backdrop {
+  display: none;
+}
+
+.backdrop.visible {
+  display: block;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 90;
+}

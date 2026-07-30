@@ -1,0 +1,98 @@
+/* ===== Callout ===== */
+
+.callout {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+  margin: var(--paragraph-spacing) 0;
+  border-radius: var(--radius-md);
+  border-left: 3px solid;
+  background-color: var(--bg-callout);
+}
+
+.icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+}
+
+.content {
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-2);
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+/* --- Variants --- */
+.note {
+  border-left-color: var(--callout-note);
+}
+.note .icon,
+.note .label {
+  color: var(--callout-note);
+}
+
+.tip {
+  border-left-color: var(--callout-tip);
+}
+.tip .icon,
+.tip .label {
+  color: var(--callout-tip);
+}
+
+.warning {
+  border-left-color: var(--callout-warning);
+}
+.warning .icon,
+.warning .label {
+  color: var(--callout-warning);
+}
+
+.important {
+  border-left-color: var(--callout-important);
+}
+.important .icon,
+.important .label {
+  color: var(--callout-important);
+}
+
+.danger {
+  border-left-color: var(--callout-danger);
+}
+.danger .icon,
+.danger .label {
+  color: var(--callout-danger);
+}
+
+.best-practice {
+  border-left-color: var(--callout-best-practice);
+}
+.best-practice .icon,
+.best-practice .label {
+  color: var(--callout-best-practice);
+}
+
+.common-mistake {
+  border-left-color: var(--callout-danger);
+}
+.common-mistake .icon,
+.common-mistake .label {
+  color: var(--callout-danger);
+}
+
+.deep-dive {
+  border-left-color: var(--callout-deep-dive);
+}
+.deep-dive .icon,
+.deep-dive .label {
+  color: var(--callout-deep-dive);
+}

@@ -1,0 +1,16 @@
+/* ===== Theme Toggle ===== */
+
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  color: var(--text-secondary);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-hover), background-color var(--transition-hover);
+}
+
+.toggle:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}

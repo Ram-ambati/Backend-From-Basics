@@ -1,0 +1,67 @@
+/* ===== Theme Tokens ===== */
+
+/* --- Light Theme --- */
+[data-theme="light"] {
+  --bg-primary: #FFFFFF;
+  --bg-secondary: #F6F6F7;
+  --bg-sidebar: #F9F9FA;
+  --bg-code: #F6F6F7;
+  --bg-hover: #F0F0F2;
+  --bg-active: #EAEAEC;
+  --bg-callout: #F0F4FF;
+  --bg-topbar: rgba(255, 255, 255, 0.85);
+
+  --text-primary: #1B1B1F;
+  --text-secondary: #60646C;
+  --text-muted: #9CA0AB;
+  --text-inverse: #FFFFFF;
+
+  --border: #E5E5E8;
+  --border-strong: #D1D1D6;
+
+  --accent: #3B82F6;
+  --accent-hover: #2563EB;
+  --accent-subtle: rgba(59, 130, 246, 0.08);
+
+  --scrollbar-track: #F0F0F2;
+  --scrollbar-thumb: #CDCDD0;
+  --scrollbar-thumb-hover: #A8A8AD;
+
+  color-scheme: light;
+}
+
+/* --- Dark Theme --- */
+[data-theme="dark"] {
+  --bg-primary: #1B1B1F;
+  --bg-secondary: #222228;
+  --bg-sidebar: #1E1E22;
+  --bg-code: #2B2B30;
+  --bg-hover: #2A2A30;
+  --bg-active: #323238;
+  --bg-callout: #1D2433;
+  --bg-topbar: rgba(27, 27, 31, 0.85);
+
+  --text-primary: #E8E8EC;
+  --text-secondary: #A0A4AE;
+  --text-muted: #6C7080;
+  --text-inverse: #1B1B1F;
+
+  --border: #2E2E34;
+  --border-strong: #3E3E46;
+
+  --accent: #60A5FA;
+  --accent-hover: #93C5FD;
+  --accent-subtle: rgba(96, 165, 250, 0.1);
+
+  --link: #60A5FA;
+  --link-hover: #93C5FD;
+
+  --scrollbar-track: #222228;
+  --scrollbar-thumb: #3E3E46;
+  --scrollbar-thumb-hover: #52525C;
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
+
+  color-scheme: dark;
+}

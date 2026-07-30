@@ -1,0 +1,111 @@
+/* ===== TopBar ===== */
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--topbar-height);
+  background-color: var(--bg-topbar);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid var(--border);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-5);
+  gap: var(--space-4);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.hamburger {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-1);
+  color: var(--text-secondary);
+  transition: color var(--transition-hover);
+}
+
+.hamburger:hover {
+  color: var(--text-primary);
+}
+
+.logo {
+  font-family: var(--font-heading);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  color: var(--text-primary);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.right {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.search-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-2) var(--space-3);
+  font-family: var(--font-body);
+  font-size: var(--font-size-sm);
+  color: var(--text-muted);
+  background-color: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: border-color var(--transition-hover), color var(--transition-hover);
+  min-width: 200px;
+}
+
+.search-button:hover {
+  border-color: var(--border-strong);
+  color: var(--text-secondary);
+}
+
+.search-kbd {
+  margin-left: auto;
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  padding: 1px 5px;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+}
+
+/* --- Scroll Progress Bar --- */
+.progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 100ms linear;
+}
+
+/* --- Responsive --- */
+@media (max-width: 767px) {
+  .hamburger {
+    display: flex;
+  }
+
+  .search-button {
+    min-width: auto;
+    padding: var(--space-2);
+  }
+
+  .search-button .search-text,
+  .search-button .search-kbd {
+    display: none;
+  }
+}

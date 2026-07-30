@@ -1,0 +1,113 @@
+/* ===== Left Sidebar ===== */
+
+.sidebar {
+  position: fixed;
+  top: var(--topbar-height);
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-left-width);
+  background-color: var(--bg-sidebar);
+  border-right: 1px solid var(--border);
+  overflow-y: auto;
+  padding: var(--space-5) 0;
+  z-index: 95;
+  transition: transform var(--transition-sidebar);
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+/* --- Chapter Group --- */
+.chapter {
+  margin-bottom: var(--space-1);
+}
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--space-2) var(--space-5);
+  font-family: var(--font-sidebar);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color var(--transition-hover);
+  border: none;
+  background: none;
+  text-align: left;
+}
+
+.chapter-header:hover {
+  color: var(--text-secondary);
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+  transition: transform var(--transition-sidebar);
+  flex-shrink: 0;
+}
+
+.chevron.expanded {
+  transform: rotate(90deg);
+}
+
+/* --- Section List --- */
+.section-list {
+  overflow: hidden;
+  transition: max-height var(--transition-sidebar);
+}
+
+.section-list.collapsed {
+  max-height: 0;
+}
+
+.section-list.expanded {
+  max-height: 1000px;
+}
+
+/* --- Section Link --- */
+.section-link {
+  display: block;
+  padding: var(--space-2) var(--space-5) var(--space-2) var(--space-7);
+  font-family: var(--font-sidebar);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  color: var(--text-secondary);
+  transition: color var(--transition-hover), background-color var(--transition-hover);
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.section-link:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.section-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+  background-color: var(--accent-subtle);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* --- Responsive: Mobile Drawer --- */
+@media (max-width: 767px) {
+  .sidebar {
+    transform: translateX(-100%);
+    z-index: 100;
+    box-shadow: var(--shadow-md);
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+}

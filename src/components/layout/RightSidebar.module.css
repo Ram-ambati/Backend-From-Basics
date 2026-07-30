@@ -1,0 +1,64 @@
+/* ===== Right Sidebar (Table of Contents) ===== */
+
+.sidebar {
+  position: fixed;
+  top: var(--topbar-height);
+  right: 0;
+  bottom: 0;
+  width: var(--sidebar-right-width);
+  padding: var(--space-8) var(--space-5) var(--space-5);
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.title {
+  font-family: var(--font-sidebar);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted);
+  margin-bottom: var(--space-4);
+}
+
+.toc-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  border-left: 1px solid var(--border);
+}
+
+.toc-link {
+  display: block;
+  padding: var(--space-1) var(--space-4);
+  font-family: var(--font-sidebar);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--transition-hover);
+  border-left: 2px solid transparent;
+  margin-left: -1px;
+  line-height: 1.5;
+}
+
+.toc-link:hover {
+  color: var(--text-primary);
+}
+
+.toc-link.active {
+  color: var(--accent);
+  border-left-color: var(--accent);
+}
+
+.toc-link.level-3 {
+  padding-left: var(--space-7);
+  font-size: var(--font-size-xs);
+}
+
+/* --- Hide on tablet and mobile --- */
+@media (max-width: 1279px) {
+  .sidebar {
+    display: none;
+  }
+}

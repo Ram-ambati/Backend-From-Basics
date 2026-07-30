@@ -1,0 +1,85 @@
+/* ===== Code Block ===== */
+
+.code-block {
+  position: relative;
+  margin: var(--paragraph-spacing) 0;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background-color: var(--bg-code);
+  overflow: hidden;
+}
+
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--border);
+  background-color: var(--bg-secondary);
+}
+
+.language-label {
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.copy-button {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-code);
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  border-radius: 4px;
+  transition: color var(--transition-hover), background-color var(--transition-hover);
+}
+
+.copy-button:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
+.copy-button.copied {
+  color: var(--success);
+}
+
+.code-content {
+  overflow-x: auto;
+  padding: var(--code-block-padding);
+}
+
+.code-content pre {
+  margin: 0;
+  font-family: var(--font-code);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-code);
+  white-space: pre;
+  color: var(--text-primary);
+}
+
+.code-content code {
+  background: none;
+  padding: 0;
+  border-radius: 0;
+  font-size: inherit;
+}
+
+/* --- Line Numbers --- */
+.line-numbers {
+  counter-reset: line;
+}
+
+.line-numbers .line::before {
+  counter-increment: line;
+  content: counter(line);
+  display: inline-block;
+  width: 2.5em;
+  margin-right: 1em;
+  text-align: right;
+  color: var(--text-muted);
+  user-select: none;
+}
