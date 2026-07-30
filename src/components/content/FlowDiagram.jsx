@@ -1,17 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import mermaid from 'mermaid';
 import styles from './content.module.css';
-
-let mermaidInitialized = false;
-
-function initMermaid(theme) {
-  mermaid.initialize({
-    startOnLoad: false,
-    theme: theme === 'dark' ? 'dark' : 'default',
-    securityLevel: 'loose',
-  });
-  mermaidInitialized = true;
-}
 
 /**
  * FlowDiagram — renders a Mermaid diagram.
@@ -22,15 +11,34 @@ function initMermaid(theme) {
 export default function FlowDiagram({ chart, caption }) {
   const containerRef = useRef(null);
   const idRef = useRef(`mermaid-${Math.random().toString(36).slice(2, 9)}`);
+  const [theme, setTheme] = useState(() => document.documentElement.getAttribute('data-theme') || 'light');
+
+  // Watch for theme changes on the html element
+  useEffect(() => {
+    const observer = new MutationObserver((mutations) => {
+      mutations.forEach((mutation) => {
+        if (mutation.attributeName === 'data-theme') {
+          const newTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          setTheme(newTheme);
+        }
+      });
+    });
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
-    const theme = document.documentElement.getAttribute('data-theme') || 'light';
-    if (!mermaidInitialized) {
-      initMermaid(theme);
-    }
-
     const renderDiagram = async () => {
       if (!containerRef.current || !chart) return;
+      
+      // Update mermaid config before rendering
+      mermaid.initialize({
+        startOnLoad: false,
+        theme: theme === 'dark' ? 'dark' : 'default',
+        securityLevel: 'loose',
+      });
+
       try {
         const { svg } = await mermaid.render(idRef.current, chart);
         containerRef.current.innerHTML = svg;
@@ -40,7 +48,7 @@ export default function FlowDiagram({ chart, caption }) {
     };
 
     renderDiagram();
-  }, [chart]);
+  }, [chart, theme]);
 
   return (
     <div className={styles.diagram}>
