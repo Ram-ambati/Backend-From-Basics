@@ -16,10 +16,12 @@ const contentMap = {
   'foundation/networking-fundamentals': lazy(() =>
     import('./chapter1-foundation/networking-fundamentals')
   ),
+  'foundation/high-level-understanding': lazy(() => 
+    import('./chapter1-foundation/high-level-understanding')
+  ),
 
   // All other sections use the empty placeholder for now
   // As you write content, replace these with actual imports:
-  // 'foundation/high-level-understanding': lazy(() => import('./chapter1-foundation/high-level-understanding')),
   // 'foundation/http-protocol': lazy(() => import('./chapter1-foundation/http-protocol')),
   // etc.
 };

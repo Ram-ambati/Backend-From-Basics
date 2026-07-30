@@ -21,7 +21,7 @@ export const chapters = [
           'How servers respond & send data',
           'Communication basics',
         ],
-        status: 'empty',
+        status: 'complete',
       },
       {
         title: 'Networking Fundamentals',
