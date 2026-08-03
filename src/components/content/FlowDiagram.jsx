@@ -1,5 +1,4 @@
 import { useEffect, useRef, useState } from 'react';
-import mermaid from 'mermaid';
 import styles from './content.module.css';
 
 /**
@@ -12,6 +11,7 @@ export default function FlowDiagram({ chart, caption }) {
   const containerRef = useRef(null);
   const idRef = useRef(`mermaid-${Math.random().toString(36).slice(2, 9)}`);
   const [theme, setTheme] = useState(() => document.documentElement.getAttribute('data-theme') || 'light');
+  const [isVisible, setIsVisible] = useState(false);
 
   // Watch for theme changes on the html element
   useEffect(() => {
@@ -28,9 +28,30 @@ export default function FlowDiagram({ chart, caption }) {
     return () => observer.disconnect();
   }, []);
 
+  // Intersection Observer to lazy-load the diagram
+  useEffect(() => {
+    if (!containerRef.current) return;
+    
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: '500px' } // Load when it's 500px away from viewport
+    );
+    
+    observer.observe(containerRef.current);
+    return () => observer.disconnect();
+  }, []);
+
   useEffect(() => {
     const renderDiagram = async () => {
-      if (!containerRef.current || !chart) return;
+      if (!isVisible || !containerRef.current || !chart) return;
+      
+      // Dynamically import mermaid ONLY when visible
+      const { default: mermaid } = await import('mermaid');
       
       // Update mermaid config before rendering
       mermaid.initialize({
@@ -41,18 +62,22 @@ export default function FlowDiagram({ chart, caption }) {
 
       try {
         const { svg } = await mermaid.render(idRef.current, chart);
-        containerRef.current.innerHTML = svg;
+        if (containerRef.current) {
+           containerRef.current.innerHTML = svg;
+        }
       } catch (err) {
-        containerRef.current.innerHTML = `<pre style="color: var(--danger)">Diagram error: ${err.message}</pre>`;
+        if (containerRef.current) {
+          containerRef.current.innerHTML = `<pre style="color: var(--danger)">Diagram error: ${err.message}</pre>`;
+        }
       }
     };
 
     renderDiagram();
-  }, [chart, theme]);
+  }, [chart, theme, isVisible]);
 
   return (
     <div className={styles.diagram}>
-      <div ref={containerRef} />
+      <div ref={containerRef} style={{ minHeight: '150px' }} />
       {caption && <div className={styles['diagram-caption']}>{caption}</div>}
     </div>
   );
