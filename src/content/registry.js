@@ -23,6 +23,9 @@ const contentMap = {
   'foundation/http-protocol': lazy(() =>
     import('./chapter1-foundation/http-protocol')
   ),
+  'foundation/routing': lazy(() =>
+    import('./chapter1-foundation/routing')
+  ),
 
   // All other sections use the empty placeholder for now
   // As you write content, replace these with actual imports:

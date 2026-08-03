@@ -60,7 +60,7 @@ export const chapters = [
           'Versioning', 'Versioning Techniques',
           'Route Grouping', 'Secure Routes', 'Route Matching',
         ],
-        status: 'empty',
+        status: 'complete',
       },
       {
         title: 'Serialization & Deserialization',
