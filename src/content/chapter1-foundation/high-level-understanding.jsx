@@ -86,7 +86,11 @@ export default function HighLevelUnderstanding() {
 
         <FlowDiagram
           chart={`graph TD
-    A[Incoming Request] --> B[Web Server / Reverse Proxy]
+    subgraph Client
+      A[Incoming Request]
+      G[Response to Client]
+    end
+    A --> B[Web Server / Reverse Proxy]
     B --> C[Application Server]
     C -->|Reads/Writes| D[(Database)]
     C -->|Fetches| E[(Cache)]
@@ -95,7 +99,7 @@ export default function HighLevelUnderstanding() {
     E --> C
     F --> C
     C -->|Constructs JSON/HTML| B
-    B -->|Sends Response| G[Back to Client]`}
+    B -->|Sends Response| G`}
           caption="Internal backend request processing"
         />
 
