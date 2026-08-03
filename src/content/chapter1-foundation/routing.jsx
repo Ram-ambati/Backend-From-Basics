@@ -275,7 +275,7 @@ export default function Routing() {
           Catch-all routes should <strong>always be registered last</strong>. They act as a
           safety net for any request that didn&apos;t match a more specific route. In single-page
           applications, the catch-all typically serves <code>index.html</code> so client-side
-          routing can take over — exactly what our Netlify <code>_redirects</code> file does.
+          routing can take over.
         </Callout>
 
         <RealWorld title="RegEx constraints in practice">
