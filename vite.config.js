@@ -11,9 +11,6 @@ export default defineConfig({
           if (id.includes('node_modules/react') || id.includes('node_modules/react-dom') || id.includes('node_modules/react-router-dom')) {
             return 'vendor';
           }
-          if (id.includes('node_modules/prismjs')) {
-            return 'syntax';
-          }
         }
       }
     }
