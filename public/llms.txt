@@ -1,0 +1,60 @@
+# Backend From First Principles
+
+> A comprehensive, modern guide to backend engineering concepts — from networking fundamentals to distributed systems.
+
+## Purpose
+This documentation site serves as a structured learning resource for backend engineering. It explains core concepts clearly, relying on first principles rather than focusing on specific frameworks or languages.
+
+## Table of Contents
+
+### Foundation
+- [High Level Understanding](https://backend-from-first-principles.netlify.app/foundation/high-level-understanding): How requests are routed to remote servers, How servers respond & send data, Communication basics
+- [Networking Fundamentals](https://backend-from-first-principles.netlify.app/foundation/networking-fundamentals): DNS, IP Address, Ports, TCP, UDP, TLS / SSL, Sockets, Connection Lifecycle, Latency, Bandwidth, Round Trip Time (RTT)
+- [HTTP Protocol](https://backend-from-first-principles.netlify.app/foundation/http-protocol): Structure of HTTP, HTTP Raw Message, Headers, Methods, Idempotent vs Non-Idempotent, Status Codes, Content Negotiation, CORS, Simple Requests & Preflight, Caching, Persistent Connections, Compression Types, HTTP 0.9, HTTP 1.0, HTTP 1.1, HTTP 2.0, HTTP 3.0 & QUIC, HOPS, Multipart Uploads & Streaming
+- [Routing](https://backend-from-first-principles.netlify.app/foundation/routing): How routing maps URLs, Routing & HTTP Methods, Path Parameters, Query Parameters, Static Routes, Dynamic Routes, Nested Routes, Hierarchical Routes, Wildcard, RegEx, Catch-all, Versioning, Versioning Techniques, Route Grouping, Secure Routes, Route Matching
+- [Serialization & Deserialization](https://backend-from-first-principles.netlify.app/foundation/serialization): Interoperability Standard, Formats, JSON, XML, Text, Binary, JSON Structure, Nested Objects, JSON Errors, Custom Serialization, Injection Attacks, Validation Before Serialization, JSON Schema, Compression
+
+### Request Processing
+- [Validation & Transformation](https://backend-from-first-principles.netlify.app/request-processing/validation-transformation): Syntactic Validation, Semantic Validation, Type Validation, Best Practices, Client-side Validation, Server-side Validation, Failing Fast, FE-BE Consistency, Transformations, Normalizations, Sanitization, Conditional Validation, Chain Validation, Error Handling, Aggregating Errors, Graceful Handling, Performance Trade-offs
+- [Middlewares](https://backend-from-first-principles.netlify.app/request-processing/middlewares): Use Cases, Request Cycle Role, Pre-request & Post-request, Post Response, Chaining, Order of Middlewares, Next Function, Short Circuit Pipeline, Security Middleware, CORS Middleware, CSRF Middleware, Rate Limiting, Route Protection, Request Logging, Compression Middleware, Performance
+- [Request Context](https://backend-from-first-principles.netlify.app/request-processing/request-context): Metadata, State, Request Lifecycle, Sharing Data Without Coupling, Request Scoped State, Request Metadata, Session, User-info Injection, Logging, Tracing, Cancellation, Timeout, Memory Overhead
+- [Authentication & Authorization](https://backend-from-first-principles.netlify.app/request-processing/authentication-authorization): Authentication Types, Stateful, Stateless, Bearer Tokens, Sessions, JWT, Cookies, OAuth, OpenID Connect, API Keys, MFA, Salting, Hashing, ABAC, RBAC, ReBAC, Cookie Security, CSRF, XSS, MITM, Audit Logging, Failed Login Monitoring, Privilege Escalation, Timing Attacks, Account Lockout
+- [Dependency Injection & IoC](https://backend-from-first-principles.netlify.app/request-processing/dependency-injection): What is DI, IoC, IoC Container, Constructor Injection, Field Injection, Setter Injection, Bean Lifecycle, Bean Scope, Circular Dependency
+- [Handlers & Controllers](https://backend-from-first-principles.netlify.app/request-processing/handlers-controllers): MVC Pattern, Handler, Controller, Service, Centralized Error Handlers, Response Formats
+- [Business Logic Layer](https://backend-from-first-principles.netlify.app/request-processing/business-logic-layer): Role of BLL, Presentation Layer, Data Access Layer, Separation of Concerns, SOLID, Domain Models, Business Rules, Service Layer, Error Propagation
+
+### Data Layer
+- [Databases](https://backend-from-first-principles.netlify.app/data-layer/databases): Relational, Non-relational, Use Cases, ACID, CAP Theorem, Queries, Joins, Schema Design, Indexing, Query Optimization, Connection Pooling, Constraints, ORM, Migrations
+- [Transactions](https://backend-from-first-principles.netlify.app/data-layer/transactions): Transactions, Isolation Levels, Rollback, Commit, Deadlocks, Optimistic Locking, Pessimistic Locking, Concurrency
+- [CRUD Mapping](https://backend-from-first-principles.netlify.app/data-layer/crud-mapping): CRUD, HTTP Methods, Status Codes, Pagination, Search, Sorting, Filtering, Validation, Consistent Responses, Payload Limiting, Redacting Sensitive Fields
+- [REST Best Practices](https://backend-from-first-principles.netlify.app/data-layer/rest-best-practices): Resource Design, HTTP Semantics, Filtering, Pagination, Versioning, URI Versioning, Header Versioning, Media Types, OpenAPI, ETags, Content Negotiation, Client-side Caching
+- [API Design](https://backend-from-first-principles.netlify.app/data-layer/api-design): Naming Conventions, Resource Modeling, Idempotency, PUT vs PATCH, Backward Compatibility, Consistency, Pagination Strategies, Filtering, Sorting
+- [Caching](https://backend-from-first-principles.netlify.app/data-layer/caching): Need of Cache, Browser Cache, In-memory Cache, Server Cache, Database Cache, Redis, Cache Aside, Read Through, Write Through, Write Behind, Cache Invalidation, TTL, Event-based Invalidation, LRU, LFU, FIFO, Cache Hit, Cache Miss
+- [Elasticsearch](https://backend-from-first-principles.netlify.app/data-layer/elasticsearch): What is Elasticsearch, Inverted Index, TF-IDF, Segments, Shards, Full Text Search, Querying, Relevance Scoring, Fuzzy Search, Aggregations, Boosting, Kibana, Field Mapping, Batch Indexing, SQL Full Text Search, LIKE vs Full Text, When NOT to Use Elasticsearch
+- [Object Storage & Large Files](https://backend-from-first-principles.netlify.app/data-layer/object-storage): AWS S3, Object Storage, Streaming, Chunking, Multipart Upload, Signed URLs, Range Requests, CDN
+
+### Communication
+- [Transactional Emails](https://backend-from-first-principles.netlify.app/communication/transactional-emails): Uses, Anatomy, Subject, Body, CTA, Footer, Dynamic Parameters
+- [Task Queuing & Scheduling](https://backend-from-first-principles.netlify.app/communication/task-queuing): Producer, Queue, Consumer, Broker, Backend, Retry, Scheduling, Priorities, Rate Limiting, Parent Child Tasks, Task Groups, Batch Processing
+- [Message Brokers](https://backend-from-first-principles.netlify.app/communication/message-brokers): RabbitMQ, Kafka, Dead Letter Queue, Consumer Groups, Pub/Sub, At Least Once, At Most Once, Exactly Once, Ordering
+- [Webhooks](https://backend-from-first-principles.netlify.app/communication/webhooks): API vs Webhook, Polling vs Push, Event Trigger, Payload, Signature Verification, HTTPS, Retry Logic, Logging, Ngrok, Stripe, GitHub, Slack, Discord, Twilio
+- [Realtime Backend Systems](https://backend-from-first-principles.netlify.app/communication/realtime-systems): WebSockets, Server Sent Events, Pub/Sub
+
+### Production
+- [Configuration Management](https://backend-from-first-principles.netlify.app/production/configuration-management): Environment Variables, JSON, YAML, Secrets, Feature Flags, Profiles, Runtime Config
+- [Logging](https://backend-from-first-principles.netlify.app/production/logging): Structured Logging, Application Logs, Access Logs, Security Logs, Log Rotation, Retention, Correlation IDs
+- [Monitoring & Observability](https://backend-from-first-principles.netlify.app/production/monitoring-observability): Metrics, Logs, Traces, Prometheus, Grafana, Dashboards, Alerts
+- [Error Handling](https://backend-from-first-principles.netlify.app/production/error-handling): Syntax Errors, Runtime Errors, Logical Errors, Fail Fast, Graceful Degradation, Custom Exceptions, Global Error Handler, Sentry, ELK Stack
+- [Health Checks](https://backend-from-first-principles.netlify.app/production/health-checks): Liveness Probe, Readiness Probe, Startup Probe, Health Endpoints
+- [Graceful Shutdown](https://backend-from-first-principles.netlify.app/production/graceful-shutdown): Signal Handling, Closing Connections, Flushing Logs, Completing Requests, Terminating Application
+- [Security](https://backend-from-first-principles.netlify.app/production/security): SQL Injection, NoSQL Injection, XSS, CSRF, Broken Authentication, Insecure Deserialization, Least Privilege, Defense in Depth, Secure Defaults, CSP, SameSite Cookies
+- [Scaling & Performance](https://backend-from-first-principles.netlify.app/production/scaling-performance): Response Time, Resource Utilization, Bottlenecks, N+1 Problem, Lazy Loading, Batch Processing, Compression, Memory Leaks, Performance Profiling, Horizontal Scaling, Vertical Scaling
+- [Distributed Systems](https://backend-from-first-principles.netlify.app/production/distributed-systems): Load Balancer, Reverse Proxy, API Gateway, CDN, Replication, Sharding, Distributed Locks, CAP Theorem, Consistency, Availability, Partition Tolerance
+
+### Engineering Practices
+- [Testing & Code Quality](https://backend-from-first-principles.netlify.app/engineering-practices/testing-code-quality): Unit Testing, Integration Testing, End-to-End Testing, Regression Testing, Performance Testing, Load Testing, Stress Testing, Security Testing, TDD, CI/CD Testing, Linting, Formatting, Cyclomatic Complexity, Maintainability Index
+- [OpenAPI Standard](https://backend-from-first-principles.netlify.app/engineering-practices/openapi-standard): Swagger, OpenAPI, API Documentation, Components, Schemas, Security Definitions, Paths, Responses, OpenAPI 3.0, OpenAPI 3.1
+- [12-Factor App Principles](https://backend-from-first-principles.netlify.app/engineering-practices/twelve-factor-app): Codebase, Dependencies, Config, Backing Services, Build / Release / Run, Processes, Port Binding, Concurrency, Disposability, Dev / Prod Parity, Logs, Admin Processes
+- [Software Architecture](https://backend-from-first-principles.netlify.app/engineering-practices/software-architecture): Layered Architecture, Clean Architecture, Hexagonal Architecture, Onion Architecture, Domain Driven Design (DDD), Monolith, Modular Monolith, Microservices, Event Driven Architecture
+- [DevOps for Backend Engineers](https://backend-from-first-principles.netlify.app/engineering-practices/devops): Docker, Kubernetes, CI, CD, Infrastructure as Code, Version Control, Deployment Strategies, Blue-Green Deployment, Rolling Deployment, Canary Deployment
+

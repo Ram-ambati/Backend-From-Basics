@@ -51,7 +51,7 @@ function ChapterRedirect() {
 /**
  * Inner app — must be inside BrowserRouter so hooks like useNavigate work.
  */
-function AppRoutes() {
+export function AppRoutes() {
   const search = useSearch();
 
   return (

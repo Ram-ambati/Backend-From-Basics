@@ -3,6 +3,7 @@ import { Clock, Calendar } from 'lucide-react';
 import Breadcrumbs from '../layout/Breadcrumbs';
 import PageFooter from '../layout/PageFooter';
 import { findSection, getPrevNextSections } from '../../data/chapters';
+import { useDocumentHead } from '../../hooks/useDocumentHead';
 import styles from './SectionPage.module.css';
 
 /**
@@ -18,6 +19,8 @@ export default function SectionPage({ children, readingTime, lastUpdated, relate
   const { chapterSlug, sectionSlug } = useParams();
   const section = findSection(chapterSlug, sectionSlug);
   const { prev, next } = getPrevNextSections(chapterSlug, sectionSlug);
+
+  useDocumentHead(chapterSlug, sectionSlug);
 
   if (!section) {
     return (

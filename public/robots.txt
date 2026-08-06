@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://backend-from-first-principles.netlify.app/sitemap.xml

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom';
+import { useDocumentHead } from '../hooks/useDocumentHead';
 
 export default function NotFound() {
+  useDocumentHead('404', 'not-found');
   return (
     <div style={{ textAlign: 'center', paddingTop: '80px' }}>
       <h1>404</h1>
