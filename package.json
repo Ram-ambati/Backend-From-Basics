@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build --outDir dist/client && cross-env VITE_SSR=true vite build --outDir dist/server && node scripts/prerender.js",
+    "build": "node scripts/generate-static.js && vite build --outDir dist/client && cross-env VITE_SSR=true vite build --outDir dist/server && node scripts/prerender.js",
     "lint": "oxlint",
     "preview": "npm run build && vite preview --outDir dist/client"
   },
