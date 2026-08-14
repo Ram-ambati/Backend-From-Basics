@@ -92,8 +92,8 @@ export default function SearchModal({
           )}
 
           {Object.entries(grouped).map(([chapter, items]) => (
-            <div key={chapter}>
-              <div className={styles['group-title']}>{chapter}</div>
+            <div key={chapter} role="group" aria-label={chapter}>
+              <div className={styles['group-title']} role="presentation">{chapter}</div>
               {items.map((result) => {
                 const currentFlatIndex = flatIndex++;
                 return (

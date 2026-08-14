@@ -12,8 +12,8 @@
   --bg-topbar: rgba(255, 255, 255, 0.85);
 
   --text-primary: #1B1B1F;
-  --text-secondary: #60646C;
-  --text-muted: #9CA0AB;
+  --text-secondary: #4A4D55;
+  --text-muted: #6B7280;
   --text-inverse: #FFFFFF;
 
   --border: #E5E5E8;
@@ -41,9 +41,9 @@
   --bg-callout: #1D2433;
   --bg-topbar: rgba(27, 27, 31, 0.85);
 
-  --text-primary: #E8E8EC;
-  --text-secondary: #A0A4AE;
-  --text-muted: #6C7080;
+  --text-primary: #F3F4F6;
+  --text-secondary: #B0B4C0;
+  --text-muted: #8B909D;
   --text-inverse: #1B1B1F;
 
   --border: #2E2E34;
