@@ -1,6 +1,7 @@
 # Backend From First Principles
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/5077ea2e-1915-4ea7-8629-66ae70f65571/deploy-status)](https://app.netlify.com/projects/backend-from-first-principles/deploys)
+**Live Site:** [https://backend-from-first-principles.netlify.app](https://backend-from-first-principles.netlify.app)
 
 A professional, long-form documentation website dedicated to teaching backend engineering concepts from the ground up. Designed to feel like modern documentation sites (Stripe, MDN, Microsoft Learn), this platform prioritizes readability, fast navigation, and clear conceptual explanations.
 

@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://backend-from-first-principles.netlify.app",
   "scripts": {
     "dev": "vite",
     "build": "node scripts/generate-static.js && vite build --outDir dist/client && cross-env VITE_SSR=true vite build --outDir dist/server && node scripts/prerender.js",
