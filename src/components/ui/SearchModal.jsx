@@ -77,12 +77,16 @@ export default function SearchModal({
             onChange={(e) => setQuery(e.target.value)}
             onKeyDown={onKeyDown}
             aria-label="Search"
+            role="combobox"
+            aria-autocomplete="list"
+            aria-controls="search-results"
+            aria-expanded={query.length > 0}
           />
           <span className={styles['esc-hint']}>ESC</span>
         </div>
 
         {/* Results */}
-        <div className={styles.results}>
+        <div id="search-results" className={styles.results} role="listbox">
           {query && results.length === 0 && (
             <div className={styles.empty}>No results found for &quot;{query}&quot;</div>
           )}
