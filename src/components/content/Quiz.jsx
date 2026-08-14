@@ -33,7 +33,7 @@ export default function Quiz({ question, options = [], correct = 0, explanation 
       <p>{question}</p>
       <div className={styles['quiz-options']}>
         {options.map((option, i) => (
-          <div
+          <button
             key={i}
             className={cn(
               styles['quiz-option'],
@@ -42,13 +42,12 @@ export default function Quiz({ question, options = [], correct = 0, explanation 
               revealed && selected === i && i !== correct && styles.incorrect
             )}
             onClick={() => handleSelect(i)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) => e.key === 'Enter' && handleSelect(i)}
+            disabled={revealed}
+            aria-pressed={selected === i}
           >
             <span>{String.fromCharCode(65 + i)}.</span>
             <span>{option}</span>
-          </div>
+          </button>
         ))}
       </div>
       {selected !== null && !revealed && (

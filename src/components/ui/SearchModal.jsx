@@ -88,7 +88,9 @@ export default function SearchModal({
         {/* Results */}
         <div id="search-results" className={styles.results} role="listbox">
           {query && results.length === 0 && (
-            <div className={styles.empty}>No results found for &quot;{query}&quot;</div>
+            <div className={styles.empty} role="option" aria-disabled="true" aria-selected="false">
+              No results found for &quot;{query}&quot;
+            </div>
           )}
 
           {Object.entries(grouped).map(([chapter, items]) => (

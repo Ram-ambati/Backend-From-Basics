@@ -277,6 +277,13 @@
   font-size: var(--font-size-sm);
   color: var(--text-secondary);
   transition: background-color var(--transition-hover);
+  
+  /* Reset button styles */
+  background: transparent;
+  border: none;
+  width: 100%;
+  text-align: left;
+  font-family: inherit;
 }
 
 .quiz-option:hover {
@@ -306,6 +313,8 @@
   background-color: var(--accent-subtle);
   border-radius: var(--radius-sm);
   cursor: pointer;
+  border: none;
+  font-family: inherit;
 }
 
 .quiz-explanation {
