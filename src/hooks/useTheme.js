@@ -7,13 +7,21 @@ const STORAGE_KEY = 'backend-ffp-theme';
  * Persists user preference to localStorage.
  */
 export function useTheme() {
-  const [theme, setThemeState] = useState(() => {
+  // Default to 'system' for SSR to prevent hydration mismatches
+  const [theme, setThemeState] = useState('system');
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
     try {
-      return localStorage.getItem(STORAGE_KEY) || 'system';
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        setThemeState(stored);
+      }
     } catch {
-      return 'system';
+      // ignore
     }
-  });
+    setMounted(true);
+  }, []);
 
   const getResolvedTheme = useCallback((themeValue) => {
     if (themeValue === 'system') {
