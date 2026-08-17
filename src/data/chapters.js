@@ -73,7 +73,7 @@ export const chapters = [
           'Injection Attacks', 'Validation Before Serialization',
           'JSON Schema', 'Compression',
         ],
-        status: 'empty',
+        status: 'complete',
       },
     ],
   },
@@ -131,7 +131,7 @@ export const chapters = [
           'Audit Logging', 'Failed Login Monitoring',
           'Privilege Escalation', 'Timing Attacks', 'Account Lockout',
         ],
-        status: 'empty',
+        status: 'complete',
       },
       {
         title: 'Dependency Injection & IoC',
