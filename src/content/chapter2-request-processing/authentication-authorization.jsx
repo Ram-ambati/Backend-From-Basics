@@ -43,7 +43,7 @@ export default function AuthenticationAuthorization() {
         </Definition>
 
         <FlowDiagram
-          chart={`graph LR
+          chart={`graph TD
     A[Incoming Request] --> B{1. Authentication<br/>Who are you?}
     B -->|Invalid Credentials| C[401 Unauthorized]
     B -->|Identity Confirmed| D{2. Authorization<br/>Can you edit this?}
@@ -87,7 +87,7 @@ export default function AuthenticationAuthorization() {
         />
 
         <FlowDiagram
-          chart={`graph TB
+          chart={`graph TD
     subgraph Stateful Session Flow
       S1[Client] -->|POST /login| S2[Server]
       S2 -->|Create & Save Session| S3[(Redis / DB)]
@@ -102,7 +102,9 @@ export default function AuthenticationAuthorization() {
       T2 -->|Return access_token: eyJ...| T1
       T1 -->|Authorization: Bearer eyJ...| T3[Any App Server]
       T3 -->|Verify Signature via Secret/Public Key| T3
-    end`}
+    end
+    
+    S3 ~~~ T1`}
           caption="Architecture comparison: Stateful database-backed sessions vs. Stateless cryptographically-signed tokens"
         />
 
@@ -240,7 +242,7 @@ Accept: application/json`}
         </Example>
 
         <FlowDiagram
-          chart={`graph LR
+          chart={`graph TD
     A[Client sends JWT] --> B[Server extracts Header & Payload]
     B --> C[Computes hash using local SECRET_KEY]
     C --> D{Hash matches Signature?}
@@ -415,7 +417,9 @@ Accept: application/json`}
       H2 --> C{Hash matches stored DB hash?}
       C -->|Yes| OK[200 OK: Login Success]
       C -->|No| ERR[401 Unauthorized]
-    end`}
+    end
+    
+    R ~~~ L`}
           caption="Registration and Login verification with Cryptographic Salt and Hash"
         />
 
@@ -472,7 +476,9 @@ Accept: application/json`}
       RES[Resource: EmployeeSalary<br/>level: 4] --> D
       ENV[Context: Time = 2 PM<br/>IP = Corporate VPN] --> D
       D -->|Evaluate rules| DEC[Allow / Deny]
-    end`}
+    end
+    
+    P2 ~~~ U2`}
           caption="RBAC role mapping vs. ABAC dynamic policy evaluation"
         />
       </ConceptBlock>

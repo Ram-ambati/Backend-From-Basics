@@ -539,7 +539,7 @@ message Transaction {
         </Definition>
 
         <FlowDiagram
-          chart={`graph LR
+          chart={`graph TD
     Client -->|1. Accept-Encoding: gzip, br| Server
     Server -->|2. Serializes JSON & Compresses with Brotli| Server
     Server -->|3. Content-Encoding: br + Compressed Body| Client

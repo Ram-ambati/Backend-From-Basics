@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, X } from 'lucide-react';
 import { chapters } from '../../data/chapters';
 import { cn } from '../../utils/cn';
 import styles from './LeftSidebar.module.css';
@@ -46,6 +46,11 @@ export default function LeftSidebar({ isOpen, onClose }) {
       role="navigation"
       aria-label="Course navigation"
     >
+      <div className={styles['close-btn']}>
+        <button onClick={onClose} aria-label="Close sidebar">
+          <X size={20} />
+        </button>
+      </div>
       <nav className={styles.nav}>
         {chapters.map((chapter) => {
           const isExpanded = expandedChapters[chapter.slug] || false;

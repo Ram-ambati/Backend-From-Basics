@@ -14,6 +14,30 @@
   transition: transform var(--transition-sidebar);
 }
 
+.close-btn {
+  display: flex;
+  justify-content: flex-end;
+  padding: 0 var(--space-4) var(--space-2);
+}
+
+.close-btn button {
+  background: none;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: var(--space-1);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-hover);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn button:hover {
+  color: var(--text-primary);
+  background-color: var(--bg-hover);
+}
+
 .nav {
   display: flex;
   flex-direction: column;
